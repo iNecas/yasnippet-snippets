@@ -2,5 +2,4 @@
 # name: default
 # key: def
 # --
-default:
-$0
+default:$0

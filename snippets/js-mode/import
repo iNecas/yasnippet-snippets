@@ -3,4 +3,4 @@
 # key: imp
 # group: es6
 # --
-import ${1:defaultMember}${2:, { ${3:member} }} from '${4:module}';
+import ${1:defaultMember} from '${2:module}';
