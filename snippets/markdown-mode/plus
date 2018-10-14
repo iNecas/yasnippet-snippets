@@ -1,6 +1,6 @@
 #name : Unordered List
 #contributor: Peng Deng <dengpeng@gmail.com>
-# key: +
+# key: ul
 # --
 + ${1:Text}
 +$0
