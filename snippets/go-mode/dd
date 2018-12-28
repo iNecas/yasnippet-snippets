@@ -2,4 +2,4 @@
 # name: debug fmt.Printf
 # key: dd
 # --
-log.Printf("${1}: %+v\n", $1) // output for debug
+log.Printf("===== ${1:var}: %+v\n", $1) // output for debug
