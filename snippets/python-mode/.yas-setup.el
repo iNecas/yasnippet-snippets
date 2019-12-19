@@ -23,16 +23,17 @@
 
 (defun python-args-to-docstring-numpy ()
   "return docstring format for the python arguments in yas-text"
-  (let* ((args (python-split-args yas-text))
+  (let* ((indent (concat "\n" (make-string (current-column) 32)))
+         (args (python-split-args yas-text))
          (format-arg (lambda(arg)
-                       (concat (nth 0 arg) " : " (if (nth 1 arg) ", optional") "\n")))
-         (formatted-params (mapconcat format-arg args "\n"))
-         (formatted-ret (mapconcat format-arg (list (list "out")) "\n")))
+                       (concat (nth 0 arg) " : " (if (nth 1 arg) ", optional") indent)))
+         (formatted-params (mapconcat format-arg args ""))
+         (formatted-ret (mapconcat format-arg (list (list "out")) indent)))
     (unless (string= formatted-params "")
       (mapconcat 'identity
-                 (list "\nParameters\n----------" formatted-params
-                       "\nReturns\n-------" formatted-ret)
-                 "\n"))))
+                 (list "Parameters" "----------" formatted-params
+                       "Returns" "-------" formatted-ret)
+                 indent))))
 
 
 (add-hook 'python-mode-hook

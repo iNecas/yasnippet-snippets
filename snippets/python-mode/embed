@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
 # name: embed
-# key: embed
+# key: em
 # --
-from IPython import embed; embed()
+import inspect; from IPython import embed; fi = inspect.getframeinfo(inspect.currentframe()); embed(header=f"{fi.filename}:{fi.lineno}")
